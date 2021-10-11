@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    /*1rem = 10px*/
+}
+
+body{
+    background: linear-gradient( rgb(255, 213, 213), rgb(232, 107, 107));
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    height: fit-content;
+
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+
+    font-size: 2rem;
+}
+
+.wrapper{
+    background-color: white;
+    height: fit-content;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    max-width: 60rem;
+
+    box-shadow: 0px 5px 10px rgba(186, 115, 115, 0.535);
+}
+    .wrapper > header{
+        padding: 1rem 0;
+        font-size: 3rem;
+
+        text-align: center;
+    }
+
+        .wrapper > header > h3{
+            font-size: 1.6rem;
+            font-weight: 300;
+
+            margin: 1rem 0;
+        }
