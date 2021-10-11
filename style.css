@@ -49,3 +49,51 @@ body{
 
             margin: 1rem 0;
         }
+
+    #newTodoInput-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 66%;
+        height: 3.5rem;
+
+        gap: 1rem;
+
+    } 
+        #newTodoInput-container > input{
+            height: inherit;
+            width: 60%;
+            font-size: 1.8rem;
+        }
+            #newTodoInput-container > button{
+                height: inherit;
+                width: 12%;
+                font-size: 1.8rem;
+                text-transform: uppercase;
+            }
+    
+    #todos-section{
+        width: 33%;
+        margin: 1rem 0;
+
+        text-align: center;
+        list-style: none;
+
+        height: fit-content;
+    }   
+        .todo-container{
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        } 
+        .todo-container > p{
+            font-weight: bold;
+            font-size: 1.8rem;
+            margin: 0.5rem;
+        }
+            .todo-container > button{
+                background: none;
+                border: none;
+                font-size: 2rem;
+            }
