@@ -8,15 +8,6 @@ const newTaskBtn = document.querySelector('#newTodoInput-container > button');
 const taskSection = document.querySelector('#todos-section');
 const displayedCompletedTaskNr = document.querySelector('header > h3 > span');
 
-function changeTasksCompleteNr(value){
-    if(value === true) { 
-        tasksComplete++;
-    } else {
-        tasksComplete >= 1 ? tasksComplete-- : tasksComplete = 0;
-    }
-    displayedCompletedTaskNr.innerText = tasksComplete;
-}
-
 // add eventlistener to input-button that creates a new task with input-value as innertext on click.
  
 newTaskBtn.addEventListener('click', ()=>{
@@ -29,7 +20,7 @@ newTaskBtn.addEventListener('click', ()=>{
 
 class task {
     constructor(id, innerText){
-        this.id = 'id' + id; // don't remove 'id:', it makes the querySelector work.
+        this.id = 'id' + id; // don't remove 'id', it makes the querySelector work.
         this.innerText = innerText;
         this.isCompleted = false;
     }
@@ -41,7 +32,7 @@ class task {
         
         const text = document.createElement('p');
             text.innerText = this.innerText;
-            text.addEventListener('click', () => this.completed(this.id))
+            text.addEventListener('click', () => this.completeTask(this.id))
             element.appendChild(text);
 
         const deleteBtn = document.createElement('button');
@@ -52,7 +43,7 @@ class task {
         taskSection.appendChild(element);
     }
 
-    completed(taskId){
+    completeTask(taskId){
         const taskText = document.querySelector(`#${taskId}>p`);
 
         if(this.isCompleted === false){
@@ -72,6 +63,15 @@ class task {
     }
 }
 
+
+function changeTasksCompleteNr(value){
+    if(value === true) { 
+        tasksComplete++;
+    } else {
+        tasksComplete >= 1 ? tasksComplete-- : tasksComplete = 0;
+    }
+    displayedCompletedTaskNr.innerText = tasksComplete;
+}
 
 
 // create a function that remove an task from taskStorge when not displayed in the dom.
