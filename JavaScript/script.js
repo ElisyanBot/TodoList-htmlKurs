@@ -1,16 +1,25 @@
 const todoStorage = []
 let taskDone = 0;
+let id = 0;
 
 //fetched dynamic sections in the html
 const newTaskInput = document.querySelector('#newTodoInput-container > input');
+const newTaskBtn = document.querySelector('#newTodoInput-container > button');
 const taskSection = document.querySelector('#todos-section');
 const displayedComplitedTaskNr = document.querySelector('header > h3 > span');
 
-
 console.log(newTaskInput.value, taskSection, displayedComplitedTaskNr.innerText);
 
- 
+
 // add eventlistener to input-button that creates a new task with input-value as innertext on click.
+ 
+newTaskBtn.addEventListener('click', ()=>{
+    todoStorage.push(new task(id, newTaskInput.value));
+    let i = todoStorage.length - 1;
+    
+    todoStorage[i].createTask();
+    id++;
+})
 
 // display taskDone as innerText to displayedComplitedTaskNr
 //     - needs to be updated when a task is changed
@@ -38,6 +47,8 @@ console.log(newTaskInput.value, taskSection, displayedComplitedTaskNr.innerText)
 //         - span(for animation)?
 
 
+
+
 class task {
     constructor(id, innerText){
         this.id = id;
@@ -47,11 +58,11 @@ class task {
 
     createTask(){
         const element = document.createElement('li');
-            this.id !== null||undefined? element.setAttribute('id', this.id) : element.removeAttribute('id');
-            element.classList.add('todo-container')
+            element.setAttribute('id', this.id);
+            element.classList.add('todo-container');
         
         const text = document.createElement('p');
-            text.innerText = taskText;
+            text.innerText = this.innerText;
             text.addEventListener('click', () => this.completed())
             element.appendChild(text);
 
@@ -60,7 +71,7 @@ class task {
             deleteBtn.addEventListener('click', () => this.deleteTask())
             element.appendChild(deleteBtn);
 
-        taskSection.appendChild(taskElement);
+        taskSection.appendChild(element);
     }
 
     completed(){
@@ -71,6 +82,9 @@ class task {
 
     }
 }
+
+
+
 
 
 // create a function that saves to array 
