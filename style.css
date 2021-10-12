@@ -64,7 +64,8 @@ body{
         #newTodoInput-container > input{
             height: inherit;
             width: 60%;
-            font-size: 1.8rem;
+            padding: 0.5rem 1rem;
+            font-size: 1.6rem;
         }
             #newTodoInput-container > button{
                 height: inherit;
