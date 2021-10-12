@@ -79,7 +79,8 @@ class task {
     }
 
     deleteTask(){
-
+        const removedItem = document.getElementById(`${this.id}`)
+        removedItem.remove();
     }
 }
 
