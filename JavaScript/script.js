@@ -32,32 +32,46 @@ console.log(newTaskInput.value, taskSection, displayedComplitedTaskNr.innerText)
 //         - set class .completed depending on isTaskCompleded value
 
 //     create a display method that pushes this task to the dom.
-//         (can i do this on input-button click instead?)
-
-// create a function that appends new task to taskSection
-//     - needs functionaliy that appends elements
 //         - li
 //         - p
 //         - button
 //         - span(for animation)?
 
-function newElement(taskId, taskText){
-    let element = document.createElement('li');
-        taskId !== null||undefined? element.setAttribute('id', taskId) : element.removeAttribute('id');
-        element.classList.add('todo-container')
+
+class task {
+    constructor(id, innerText){
+        this.id = id;
+        this.innerText = innerText;
+        this.isCompleted = false;
+    }
+
+    createTask(){
+        const element = document.createElement('li');
+            this.id !== null||undefined? element.setAttribute('id', this.id) : element.removeAttribute('id');
+            element.classList.add('todo-container')
         
-        const text =  document.createElement('p');
+        const text = document.createElement('p');
             text.innerText = taskText;
+            text.addEventListener('click', () => this.completed())
             element.appendChild(text);
 
-        const deleteBtn  =  document.createElement('button');
+        const deleteBtn = document.createElement('button');
             deleteBtn.innerText = '\uD83D\uDDD1\uFE0F';
+            deleteBtn.addEventListener('click', () => this.deleteTask())
             element.appendChild(deleteBtn);
-    
-    return element;
+
+        taskSection.appendChild(taskElement);
+    }
+
+    completed(){
+
+    }
+
+    deleteTask(){
+
+    }
 }
 
-taskSection.appendChild(newElement(80, 'Learn javscript'))
 
 // create a function that saves to array 
 //     - push new task obj to taskStorage[]
