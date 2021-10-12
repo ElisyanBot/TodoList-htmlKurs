@@ -51,7 +51,7 @@ newTaskBtn.addEventListener('click', ()=>{
 
 class task {
     constructor(id, innerText){
-        this.id = id;
+        this.id = 'id' + id;
         this.innerText = innerText;
         this.isCompleted = false;
     }
@@ -63,7 +63,7 @@ class task {
         
         const text = document.createElement('p');
             text.innerText = this.innerText;
-            text.addEventListener('click', () => this.completed())
+            text.addEventListener('click', () => this.completed(this.id))
             element.appendChild(text);
 
         const deleteBtn = document.createElement('button');
@@ -74,22 +74,25 @@ class task {
         taskSection.appendChild(element);
     }
 
-    completed(){
+    completed(taskId){
+        const taskText = document.querySelector(`#${taskId}>p`);
 
+        if(this.isCompleted === false){
+            this.isCompleted = true
+            taskText.classList.add('completed')
+        } else {
+            this.isCompleted = false
+            taskText.classList.remove('completed')
+        }
     }
 
     deleteTask(){
-        const removedItem = document.getElementById(`${this.id}`)
+        const removedItem = document.querySelector(`#${this.id}`)
         removedItem.remove();
     }
 }
 
 
-
-
-
-// create a function that saves to array 
-//     - push new task obj to taskStorage[]
 
 // create a function that remove an task from taskStorge when not displayed in the dom.
 //     - filter out the task from TaskStorage ande save the new values to taskStorage

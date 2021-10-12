@@ -99,6 +99,10 @@ body{
                 .todo-container > button{
                     background: none;
                     border: none;
-                    font-size: 2rem;
+                    font-size: 1.6rem;
                     cursor: pointer;
                 }
+    
+    .completed{
+        text-decoration: line-through;
+    }
