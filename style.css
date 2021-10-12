@@ -41,6 +41,7 @@ body{
         font-size: 3rem;
 
         text-align: center;
+        cursor: default;
     }
 
         .wrapper > header > h3{
@@ -72,6 +73,7 @@ body{
                 width: 12%;
                 font-size: 1.8rem;
                 text-transform: uppercase;
+                cursor: pointer;
             }
     
     #todos-section{
@@ -88,13 +90,15 @@ body{
             justify-content: center;
             gap: 1rem;
         } 
-        .todo-container > p{
-            font-weight: bold;
-            font-size: 1.8rem;
-            margin: 0.5rem;
-        }
-            .todo-container > button{
-                background: none;
-                border: none;
-                font-size: 2rem;
+            .todo-container > p{
+                font-weight: bold;
+                font-size: 1.8rem;
+                margin: 0.5rem;
+                cursor: pointer;
             }
+                .todo-container > button{
+                    background: none;
+                    border: none;
+                    font-size: 2rem;
+                    cursor: pointer;
+                }
