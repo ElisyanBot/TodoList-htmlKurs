@@ -64,10 +64,11 @@ body{
             height: inherit;
             width: 60%;
             padding: 0.5rem 1rem;
-            
+            outline-color: rgb(42, 139, 172);
+
             font-size: 1.6rem;
         }
-
+        
         #newTodoInput-container > button{
             height: inherit;
             width: 12%;
@@ -79,13 +80,16 @@ body{
 
     span.error{
         margin: 1rem 0rem;
-         color: red;
-         font-size: 1.3rem;
-         transform: translateY(-2.2rem);
-         opacity: 0;
+        
+        color: red;
+        font-size: 1.7rem;
+        font-style: italic;
+        
+        opacity: 0;
     }
     
     #todos-section{
+      
         height: fit-content;
         width: 33%;
         margin: 1rem 0;
@@ -130,34 +134,21 @@ body{
     }
 
     .error.visible{
-        animation: error-display ease-out 4s;
+        opacity: 1;
+        animation: error-display ease-out 0.8s 2;
     }
 
         @keyframes error-display{
             0%{
-                transform: translateY(-2.2rem);
                 opacity: 0;
             }
 
-            10%{
-                opacity: 0;
-
-            }
             50%{
-                transform: translateY(0rem);
                 opacity: 1;
-            }
-
-            87%{
-                transform: translateY(0rem);
-                opacity: 1;
-            }
-
-            90%{
-                opacity: 0;
 
             }
+       
             100%{
-                transform: translateY(-2.2rem);
+                opacity: 0;
             }
         }

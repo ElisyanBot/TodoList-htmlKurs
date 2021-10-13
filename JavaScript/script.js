@@ -9,18 +9,24 @@ const taskSection = document.querySelector('#todos-section');
 const displayedCompletedTaskNr = document.querySelector('header > h3 > span');
 
 // add eventlistener to input-button that creates a new task with input-value as innertext on click.
- 
+
 newTaskBtn.addEventListener('click', ()=>{
-    todoStorage.push(new task(taskIdNumber, newTaskInput.value));
-    let i = todoStorage.length - 1;
-    
-    todoStorage[i].createTask();
-    taskIdNumber++;
+    const inputErrorMessage = document.querySelector('.wrapper > span.error');
+    if( newTaskInput.value === ''){
+            inputErrorMessage.classList.add('visible');
+    } else {
+        todoStorage.push(new task(taskIdNumber, newTaskInput.value));
+        let i = todoStorage.length - 1;
+        
+        todoStorage[i].createTask();
+        taskIdNumber++;
+        inputErrorMessage.classList.remove('visible');
+    }
 })
 
 class task {
     constructor(id, innerText){
-        this.id = 'id' + id; // don't remove 'id', it makes the querySelector work.
+        this.id = 'id' + id; // ! don't remove 'id', it makes the querySelectors work !
         this.innerText = innerText;
         this.isCompleted = false;
     }
