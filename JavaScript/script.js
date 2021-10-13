@@ -38,7 +38,7 @@ class task {
         
         const text = document.createElement('p');
             text.innerText = this.innerText;
-            text.addEventListener('click', () => this.completeTask(this.id))
+            text.addEventListener('click', () => this.completeTask());
             element.appendChild(text);
 
         const deleteBtn = document.createElement('button');
@@ -49,22 +49,22 @@ class task {
         taskSection.appendChild(element);
     }
 
-    completeTask(taskId){
-        const taskText = document.querySelector(`#${taskId}>p`);
+    completeTask(){
+        const taskText = document.querySelector(`#${this.id}>p`);
 
         if(this.isCompleted === false){
-            this.isCompleted = true
-            taskText.classList.add('completedTask')
-            changeTasksCompleteNr(this.isCompleted)
+            this.isCompleted = true;
+            taskText.classList.add('completedTask');
+            changeTasksCompleteNr(this.isCompleted);
         } else {
-            this.isCompleted = false
-            taskText.classList.remove('completedTask')
-            changeTasksCompleteNr(this.isCompleted)
+            this.isCompleted = false;
+            taskText.classList.remove('completedTask');
+            changeTasksCompleteNr(this.isCompleted);
         }
     }
 
     deleteTask(){
-        const removedItem = document.querySelector(`#${this.id}`)
+        const removedItem = document.querySelector(`#${this.id}`);
         removedItem.remove();
     }
 }
