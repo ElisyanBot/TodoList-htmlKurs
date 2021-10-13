@@ -25,66 +25,74 @@ body{
 .wrapper{
     background-color: white;
     height: fit-content;
+    padding: 2rem 0 3rem 0;
+    width: 100%;
+    max-width: 60rem;
     
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 
-    padding: 2rem 0 3rem 0;
-    width: 100%;
-    max-width: 60rem;
-
     box-shadow: 0px 5px 10px rgba(186, 115, 115, 0.535);
 }
     .wrapper > header{
         padding: 1rem 0;
+        
         font-size: 3rem;
-
         text-align: center;
         cursor: default;
     }
 
         .wrapper > header > h3{
+            margin: 1rem 0;
+            
             font-size: 1.6rem;
             font-weight: 300;
-
-            margin: 1rem 0;
         }
 
     #newTodoInput-container{
         display: flex;
         justify-content: center;
         align-items: center;
+        gap: 1rem;
 
         width: 66%;
         height: 3.5rem;
-
-        gap: 1rem;
-
     } 
         #newTodoInput-container > input{
             height: inherit;
             width: 60%;
             padding: 0.5rem 1rem;
+            
             font-size: 1.6rem;
         }
-            #newTodoInput-container > button{
-                height: inherit;
-                width: 12%;
-                font-size: 1.8rem;
-                text-transform: uppercase;
-                cursor: pointer;
-            }
+
+        #newTodoInput-container > button{
+            height: inherit;
+            width: 12%;
+            
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+    span.error{
+        margin: 1rem 0rem;
+         color: red;
+         font-size: 1.3rem;
+         transform: translateY(-2.2rem);
+         opacity: 0;
+    }
     
     #todos-section{
+        height: fit-content;
         width: 33%;
         margin: 1rem 0;
 
         text-align: center;
         list-style: none;
 
-        height: fit-content;
     }   
         .todo-container{
             display: flex;
@@ -92,11 +100,13 @@ body{
             gap: 1rem;
         } 
             .todo-container > p{
-                transition: ease-in 0.5s;
+                margin: 0.5rem;
+                
                 font-weight: bold;
                 font-size: 2.2rem;
-                margin: 0.5rem;
                 cursor: pointer;
+               
+                transition: ease-in 0.5s;
             }   
                 .todo-container > p:hover{
                     text-decoration: line-through;
@@ -105,6 +115,7 @@ body{
             .todo-container > button{
                 background: none;
                 border: none;
+               
                 font-size: 1.2rem;
                 cursor: pointer;
             }
@@ -113,6 +124,40 @@ body{
     /*add through javascript rules*/
     .completedTask{
         transition: ease-in 0.5s;
+     
         text-decoration: line-through;
         color: gray;
     }
+
+    .error.visible{
+        animation: error-display ease-out 4s;
+    }
+
+        @keyframes error-display{
+            0%{
+                transform: translateY(-2.2rem);
+                opacity: 0;
+            }
+
+            10%{
+                opacity: 0;
+
+            }
+            50%{
+                transform: translateY(0rem);
+                opacity: 1;
+            }
+
+            87%{
+                transform: translateY(0rem);
+                opacity: 1;
+            }
+
+            90%{
+                opacity: 0;
+
+            }
+            100%{
+                transform: translateY(-2.2rem);
+            }
+        }

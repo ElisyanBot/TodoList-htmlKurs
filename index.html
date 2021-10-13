@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Todo List</title>
 </head>
-</body>
+<body>
     <section class="wrapper">
         <header>
             <h1>My ToDo</h1>
@@ -20,11 +20,16 @@
             <input placeholder="Add Task here..." type="text" >
             <button> ok </button>
         </div>
+
+        <span class="error visible"> 
+            error! you need to atleast one char to create a new task
+        </span>
+
         <ul id="todos-section">
             <!-- new tasks goes here -->
         </ul>
     </section>
 
     <script src="JavaScript/script.js"></script>
-<body>
+</body>
 </html>
