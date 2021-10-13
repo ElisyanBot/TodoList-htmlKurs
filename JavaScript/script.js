@@ -48,11 +48,11 @@ class task {
 
         if(this.isCompleted === false){
             this.isCompleted = true
-            taskText.classList.add('completed')
+            taskText.classList.add('completedTask')
             changeTasksCompleteNr(this.isCompleted)
         } else {
             this.isCompleted = false
-            taskText.classList.remove('completed')
+            taskText.classList.remove('completedTask')
             changeTasksCompleteNr(this.isCompleted)
         }
     }

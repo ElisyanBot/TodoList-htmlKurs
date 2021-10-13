@@ -110,8 +110,8 @@ body{
             }
 
               
-    
-    .completed{
+    /*add through javascript rules*/
+    .completedTask{
         transition: ease-in 0.5s;
         text-decoration: line-through;
         color: gray;
