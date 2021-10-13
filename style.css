@@ -51,6 +51,8 @@ body{
             
             font-size: 1.6rem;
             font-weight: 300;
+            
+            overflow: hidden;
         }
 
     #newTodoInput-container{
@@ -93,7 +95,7 @@ body{
     #todos-section{
       
         height: fit-content;
-        width: 33%;
+        width: 50%;
         margin: 1rem 0;
 
         text-align: center;
@@ -124,7 +126,7 @@ body{
                 background: none;
                 border: none;
                
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 cursor: pointer;
             }
 
