@@ -21,6 +21,7 @@ newTaskBtn.addEventListener('click', ()=>{
         todoStorage[i].createTask();
         taskIdNumber++;
         inputErrorMessage.classList.remove('visible');
+        newTaskInput.value = '';
     }
 })
 
