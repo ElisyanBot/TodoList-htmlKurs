@@ -65,6 +65,7 @@ class task {
 
     deleteTask(){
         const removedItem = document.querySelector(`#${this.id}`);
+        changeTasksCompleteNr(false);
         removedItem.remove();
     }
 }
