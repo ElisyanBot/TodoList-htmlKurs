@@ -12,17 +12,16 @@ const displayedCompletedTaskNr = document.querySelector('header > h3 > span');
 
 newTaskBtn.addEventListener('click', ()=>{
     const inputErrorMessage = document.querySelector('.wrapper > span.error');
-    if( newTaskInput.value === ''){
+        if( newTaskInput.value === ''){
             inputErrorMessage.classList.add('visible');
-    } else {
-        todoStorage.push(new task(taskIdNumber, newTaskInput.value));
-        let i = todoStorage.length - 1;
-        
-        todoStorage[i].createTask();
-        taskIdNumber++;
-        inputErrorMessage.classList.remove('visible');
-        newTaskInput.value = '';
-    }
+        } else {
+            inputErrorMessage.classList.remove('visible');
+            todoStorage.push(new task(taskIdNumber, newTaskInput.value));
+            todoStorage[todoStorage.length - 1].createTask();
+            taskIdNumber++;
+        }
+
+    newTaskInput.value = '';
 })
 
 class task {
