@@ -87,29 +87,29 @@ function changeTasksCompleteNr(value){
 //         || splice out the selected task. 
 
 
-function removeTaskFromStorage(taskId){
-    let newTodoStorage = []
-    todoStorage.filter( element => {
-        if (element.id === taskId){
-            console.log('element removed')
-        } else {
-            newTodoStorage.push(element);
-            todoStorage = newTodoStorage;
-        }
-    })
-}
+// function removeTaskFromStorage(taskId){
+//     let newTodoStorage = []
+//     todoStorage.filter( element => {
+//         if (element.id === taskId){
+//             console.log('element removed')
+//         } else {
+//             newTodoStorage.push(element);
+//             todoStorage = newTodoStorage;
+//         }
+//     })
+// }
 
-/* 
+
     //this do not work, it removes the right id sometimes and other times not at all...
 
     function removeTaskFromStorage(taskId){
         todoStorage.forEach( element => {
             if(element.id === taskId){
                 console.log(element.id, taskId)
-                todoStorage.splice(element, 1);
+                todoStorage.splice(todoStorage.indexOf(element), 1); //indexOf() fixed the randomness problem
             } else {
                 console.log('err! no matching id');
             }
         })
     }
-*/
+
