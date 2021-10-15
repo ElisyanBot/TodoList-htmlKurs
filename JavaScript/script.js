@@ -1,4 +1,4 @@
-const todoStorage = []
+let todoStorage = []
 let tasksComplete = 0;
 let taskIdNumber = 0;
 
@@ -66,6 +66,7 @@ class task {
     deleteTask(){
         const removedItem = document.querySelector(`#${this.id}`);
         changeTasksCompleteNr(false);
+        removeTaskFromStorage(this.id);
         removedItem.remove();
     }
 }
@@ -83,5 +84,32 @@ function changeTasksCompleteNr(value){
 
 // create a function that remove an task from taskStorge when not displayed in the dom.
 //     - filter out the task from TaskStorage ande save the new values to taskStorage
-//         || splice out the selected task.
+//         || splice out the selected task. 
 
+
+function removeTaskFromStorage(taskId){
+    let newTodoStorage = []
+    todoStorage.filter( element => {
+        if (element.id === taskId){
+            console.log('element removed')
+        } else {
+            newTodoStorage.push(element);
+            todoStorage = newTodoStorage;
+        }
+    })
+}
+
+/* 
+    //this do not work, it removes the right id sometimes and other times not at all...
+
+    function removeTaskFromStorage(taskId){
+        todoStorage.forEach( element => {
+            if(element.id === taskId){
+                console.log(element.id, taskId)
+                todoStorage.splice(element, 1);
+            } else {
+                console.log('err! no matching id');
+            }
+        })
+    }
+*/
