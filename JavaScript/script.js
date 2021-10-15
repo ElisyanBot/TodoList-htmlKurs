@@ -10,7 +10,8 @@ const displayedCompletedTaskNr = document.querySelector('header > h3 > span');
 
 // add eventlistener to input-button that creates a new task with input-value as innertext on click.
 
-newTaskBtn.addEventListener('click', ()=>{
+newTaskBtn.addEventListener('click', (eventObj)=>{
+    eventObj.preventDefault()
     const inputErrorMessage = document.querySelector('.wrapper > span.error');
         if( newTaskInput.value === ''){
             inputErrorMessage.classList.add('visible');
@@ -30,7 +31,7 @@ class task {
         this.innerText = innerText;
         this.isCompleted = false;
     }
-
+    
     createTask(){
         const element = document.createElement('li');
             element.setAttribute('id', this.id);
